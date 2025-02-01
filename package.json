@@ -27,10 +27,10 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@vitalets/google-translate-api": "^9.2.1",
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
     "react-router-dom": "6.2",
-    "tailwindcss": "^3.0.24",
-    "translate-google-api": "^1.0.4"
+    "tailwindcss": "^3.0.24"
   }
 }
