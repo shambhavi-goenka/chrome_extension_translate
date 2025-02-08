@@ -6,7 +6,7 @@ window.onload = () => {
         // percentage = percentage/100;
         console.log("Translating to:", language);
         console.log("Percentage:", percentage);
-        translatePageText(language);
+        translatePageText(language, percentage);
     });
 };
 
@@ -27,7 +27,7 @@ function isNodeVisible(node: Node): boolean {
     return !(style.display === "none" || style.visibility === "hidden" || parseFloat(style.opacity) === 0);
 }
 
-function translatePageText(targetLanguage: string) {
+function translatePageText(targetLanguage: string, targetPercentage: number) {
     const textNodes: Node[] = [];
     gatherVisibleTextNodes(document.body, textNodes);
 
@@ -60,7 +60,7 @@ function translatePageText(targetLanguage: string) {
                     // Randomly decide which words to translate
                     let modifiedWords = originalWords.map((word, index) => {
                         if (!word.trim()) return word; // Preserve spaces exactly
-                        if (Math.random() * 100 < 50) {
+                        if (Math.random() * 100 < targetPercentage) {
                             return translatedWords[index] || word; // Fallback to original if missing
                         }
                         return word;
